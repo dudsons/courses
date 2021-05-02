@@ -2,10 +2,9 @@ package com.mr.courses.controllers;
 
 import com.mr.courses.models.Course;
 import com.mr.courses.services.ICourseService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/courses")
@@ -17,13 +16,19 @@ public class CourseController {
         this.courseService = courseService;
     }
 
-    @GetMapping
+    @PostMapping
     public Course addCourse (@RequestBody Course course){
         return courseService.addCourse(course);
     }
 
-    @GetMapping("/test")
-    public void test (){
-        System.out.println("I am in");
+    @GetMapping("/{code}")
+    Course getCourseByCode(@PathVariable String code){
+        return courseService.getCourseByCode(code);
     }
+
+    @GetMapping
+    public List<Course> getAllCourses (){
+        return courseService.getAllCourses();
+    }
+
 }

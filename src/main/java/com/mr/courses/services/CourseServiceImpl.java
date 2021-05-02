@@ -4,10 +4,12 @@ import com.mr.courses.models.Course;
 import com.mr.courses.repositories.CourseRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CourseServiceImpl implements ICourseService {
 
-    private CourseRepository courseRepository;
+    private final CourseRepository courseRepository;
 
     public CourseServiceImpl(CourseRepository courseRepository) {
         this.courseRepository = courseRepository;
@@ -16,5 +18,30 @@ public class CourseServiceImpl implements ICourseService {
     @Override
     public Course addCourse(Course course) {
         return courseRepository.save(course);
+    }
+
+    @Override
+    public Course getCourseByCode(String code) {
+        return courseRepository.findByCode(code);
+    }
+
+    @Override
+    public List<Course> getAllCourses() {
+        return courseRepository.findAll();
+    }
+
+    @Override
+    public Course putCourse(String code) {
+        return null;
+    }
+
+    @Override
+    public Course patchCourse(String code) {
+        return null;
+    }
+
+    @Override
+    public Course deleteCourseByCode(String code) {
+        return null;
     }
 }
