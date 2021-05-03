@@ -1,5 +1,7 @@
 package com.mr.courses.services;
 
+import com.mr.courses.exceptions.CourseErrorEnum;
+import com.mr.courses.exceptions.CourseException;
 import com.mr.courses.models.Course;
 import com.mr.courses.repositories.CourseRepository;
 import org.springframework.stereotype.Service;
@@ -22,7 +24,7 @@ public class CourseServiceImpl implements ICourseService {
 
     @Override
     public Course getCourseByCode(String code) {
-        return courseRepository.findByCode(code);
+         return courseRepository.findByCode(code).orElseThrow(()->new CourseException(CourseErrorEnum.COURSE_NOT_FOUND));
     }
 
     @Override

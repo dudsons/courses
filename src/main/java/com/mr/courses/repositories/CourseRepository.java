@@ -4,10 +4,12 @@ import com.mr.courses.models.Course;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface CourseRepository extends MongoRepository<Course,String> {
 
-    Course findByCode(String code);
+    Optional<Course> findByCode(String code);
 
 
 }
