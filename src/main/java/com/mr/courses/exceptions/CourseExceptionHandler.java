@@ -12,6 +12,8 @@ public class CourseExceptionHandler {
     public ErrorMessage getErrorMessage (CourseException courseException){
         if(CourseErrorEnum.COURSE_NOT_FOUND.equals(courseException.getExceptionMessage())){
             return new ErrorMessage(CourseErrorEnum.COURSE_NOT_FOUND.getMessage());
+        } else if (CourseErrorEnum.CODE_NOT_FOUND .equals(courseException.getExceptionMessage())){
+            return new ErrorMessage(CourseErrorEnum.CODE_NOT_FOUND.getMessage());
         }
 
        return new ErrorMessage("Unknow exception");

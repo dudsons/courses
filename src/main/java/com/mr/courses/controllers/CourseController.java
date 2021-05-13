@@ -31,4 +31,8 @@ public class CourseController {
         return courseService.getAllCourses();
     }
 
+    @DeleteMapping("/{code}")
+    public void deleteCourseByCode (@PathVariable String code){
+         courseService.deleteCourseByCode(code);
+    }
 }

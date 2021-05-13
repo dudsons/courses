@@ -16,7 +16,7 @@ public interface ICourseService {
 
     Course patchCourse(String code);
 
-    Course deleteCourseByCode(String code);
+    void deleteCourseByCode(String code);
 
 
 

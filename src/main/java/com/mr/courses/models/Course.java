@@ -20,8 +20,8 @@ public class Course {
     @JsonFormat(pattern = "dd/MM/yyyy")
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate endDate;
-    private long participantsLimit;
-    private long participantsNumber;
+    private Long participantsLimit;
+    private Long participantsNumber;
 
 
     public String getCode() {
@@ -64,19 +64,19 @@ public class Course {
         this.endDate = endDate;
     }
 
-    public long getParticipantsLimit() {
+    public Long getParticipantsLimit() {
         return participantsLimit;
     }
 
-    public void setParticipantsLimit(long participantsLimit) {
+    public void setParticipantsLimit(Long participantsLimit) {
         this.participantsLimit = participantsLimit;
     }
 
-    public long getParticipantsNumber() {
+    public Long getParticipantsNumber() {
         return participantsNumber;
     }
 
-    public void setParticipantsNumber(long participantsNumber) {
+    public void setParticipantsNumber(Long participantsNumber) {
         this.participantsNumber = participantsNumber;
     }
 }
